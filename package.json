@@ -1,0 +1,35 @@
+{
+  "name": "hostel_management_system_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "node.js",
+    "express.js",
+    "cors",
+    "dotenv",
+    "nodemon",
+    "mongoDB",
+    "mongoose",
+    "bcrypt",
+    "JWT",
+    "nodemailer"
+  ],
+  "author": "Vignesh R",
+  "license": "ISC",
+  "description": "A comprehensive system for managing hostel operations, including room allocation, maintenance requests, and billing. Implement features for tracking resident information and generating financial reports.",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.0",
+    "nodemailer": "^7.0.5",
+    "nodemon": "^3.1.10"
+  }
+}
