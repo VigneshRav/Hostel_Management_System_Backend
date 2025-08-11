@@ -1,6 +1,6 @@
-import User from "../Models/User";
-import Room from "../Models/Room";
-import Invoice from "../Models/Invoice";
+import User from "../Models/User.js";
+import Room from "../Models/Room.js";
+import Invoice from "../Models/Invoice.js";
 
 export const getFinancialReport = async (req, res) => {
   try {
@@ -36,11 +36,9 @@ export const getFinancialReport = async (req, res) => {
     });
   } catch (err) {
     console.error("Error generating report:", err);
-    res
-      .status(500)
-      .json({
-        message: "Failed to generate financial report",
-        error: err.message,
-      });
+    res.status(500).json({
+      message: "Failed to generate financial report",
+      error: err.message,
+    });
   }
 };

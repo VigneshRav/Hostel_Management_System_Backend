@@ -1,13 +1,9 @@
 import express from "express";
-import reportController from "../Controllers/ReportController";
+import { getFinancialReport } from "../Controllers/ReportController.js";
+import { protect, adminOnly } from "../Middlewares/Auth.js";
+
 const router = express.Router();
-const { protect, adminOnly } = require("../middleware/authMiddleware");
 
-router.get(
-  "/financial",
-  protect,
-  adminOnly,
-  reportController.getFinancialReport
-);
+router.get("/financial", protect, adminOnly, getFinancialReport);
 
-module.exports = router;
+export default router;

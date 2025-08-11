@@ -9,14 +9,25 @@ const userSchema = new mongoose.Schema({
     enum: ["admin", "staff", "resident"],
     default: "resident",
   },
-  contactNumber: String,
+  token: {
+    type: String,
+  },
+  contactNumber: {
+    type: String,
+  },
   emergencyContact: {
     name: String,
     phone: String,
   },
-  roomNumber: String,
-  checkInDate: Date,
-  checkOutDate: Date,
+  roomNumber: {
+    type: String,
+  },
+  checkInDate: {
+    type: Date,
+  },
+  checkOutDate: {
+    type: Date,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

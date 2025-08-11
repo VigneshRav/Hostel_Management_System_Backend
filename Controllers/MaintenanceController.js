@@ -1,4 +1,4 @@
-import MaintenanceRequest from "../Models/MaintenanceRequest";
+import MaintenanceRequest from "../Models/MaintenanceRequest.js";
 import User from "../Models/User.js";
 import sendEmail from "../Utils/Mailer.js";
 
@@ -14,7 +14,7 @@ export const createRequest = async (req, res) => {
   res.status(201).json(request);
 };
 
-export const listRequests = async (req, res) => {
+export const getRequests = async (req, res) => {
   const { role, _id } = req.user;
   let requests;
 
@@ -30,7 +30,7 @@ export const listRequests = async (req, res) => {
   res.json(requests);
 };
 
-export const updateRequestStatus = async (req, res) => {
+export const updateRequest = async (req, res) => {
   const { id } = req.params;
   const { status, assignedTo } = req.body;
 

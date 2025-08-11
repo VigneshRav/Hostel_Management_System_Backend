@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../Models/User";
+import User from "../Models/User.js";
 
 export const protect = async (req, res, next) => {
   let token = req.headers.authorization?.split(" ")[1];
@@ -16,7 +16,7 @@ export const protect = async (req, res, next) => {
   }
 };
 
-export const authorize = (...roles) => {
+export const adminOnly = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return res

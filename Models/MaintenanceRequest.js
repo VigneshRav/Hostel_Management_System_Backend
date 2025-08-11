@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 
-const mongoose = require("mongoose");
-
 const maintenanceSchema = new mongoose.Schema({
   resident: {
     type: mongoose.Schema.Types.ObjectId,

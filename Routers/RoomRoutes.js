@@ -1,11 +1,16 @@
 import express from "express";
-import roomController from "../Controllers/RoomController";
+import {
+  getAllRooms,
+  createRoom,
+  assignRoom,
+} from "../Controllers/RoomController.js";
+
+import { protect, adminOnly } from "../Middlewares/Auth.js";
 
 const router = express.Router();
-const { protect, adminOnly } = require("../middleware/authMiddleware");
 
-router.get("/", protect, roomController.getAllRooms);
-router.post("/", protect, adminOnly, roomController.createRoom);
-router.put("/:id/assign", protect, adminOnly, roomController.assignRoom);
+router.get("/", protect, getAllRooms);
+router.post("/", protect, adminOnly, createRoom);
+router.put("/:id/assign", protect, adminOnly, assignRoom);
 
-module.exports = router;
+export default router;

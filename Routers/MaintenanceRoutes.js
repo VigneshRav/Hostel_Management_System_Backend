@@ -1,10 +1,15 @@
 import express from "express";
+import {
+  createRequest,
+  getRequests,
+  updateRequest,
+} from "../Controllers/MaintenanceController.js";
+import { protect, adminOnly } from "../Middlewares/Auth.js";
+
 const router = express.Router();
-import maintenanceController from "../Controllers/MaintenanceController";
-const { protect, adminOnly } = require("../middleware/authMiddleware");
 
-router.post("/", protect, maintenanceController.createRequest);
-router.get("/", protect, maintenanceController.getRequests);
-router.put("/:id", protect, adminOnly, maintenanceController.updateRequest);
+router.post("/", protect, createRequest);
+router.get("/", protect, getRequests);
+router.put("/:id", protect, adminOnly, updateRequest);
 
-module.exports = router;
+export default router;

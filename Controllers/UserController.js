@@ -1,4 +1,4 @@
-import User from "../Models/User";
+import User from "../Models/User.js";
 
 export const getProfile = async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
@@ -30,3 +30,4 @@ export const updateUserById = async (req, res) => {
   if (!user) return res.status(404).json({ message: "User not found" });
   res.json(user);
 };
+

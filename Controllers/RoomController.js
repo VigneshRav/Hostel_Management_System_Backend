@@ -1,5 +1,5 @@
-import Room from "../Models/Room";
-import User from "../Models/User";
+import Room from "../Models/Room.js";
+import User from "../Models/User.js";
 
 export const createRoom = async (req, res) => {
   const { roomNumber, type } = req.body;
@@ -10,7 +10,7 @@ export const createRoom = async (req, res) => {
   res.status(201).json(room);
 };
 
-export const listRooms = async (req, res) => {
+export const getAllRooms = async (req, res) => {
   const rooms = await Room.find().populate("assignedTo", "name email");
   res.json(rooms);
 };

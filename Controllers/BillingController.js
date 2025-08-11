@@ -1,8 +1,12 @@
-import User from "../Models/User";
-import Invoice from "../Models/Invoice";
-import sendEmail from "../Utils/Mailer";
+import dotenv from "dotenv";
+import Stripe from "stripe";
+import User from "../Models/User.js";
+import Invoice from "../Models/Invoice.js";
+import sendEmail from "../Utils/Mailer.js";
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET);
+dotenv.config();
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Create Invoice
 export const createInvoice = async (req, res) => {
@@ -33,7 +37,7 @@ export const createInvoice = async (req, res) => {
 };
 
 // List Invoices
-export const listInvoices = async (req, res) => {
+export const getInvoices = async (req, res) => {
   try {
     const { role, _id } = req.user;
 
